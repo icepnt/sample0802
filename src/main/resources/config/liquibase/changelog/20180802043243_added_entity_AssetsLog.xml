@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity AssetsLog.
+    -->
+    <changeSet id="20180802043243-1" author="jhipster">
+        <createTable tableName="assets_log">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="digital_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cust_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="security_account_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="assets_type" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="assets_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="assets_subtype" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="trans_datetime" type="datetime">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="trade_amt" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fee_amt" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="start_bal" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="end_bal" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="trade_obj_type" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="trade_obj_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="description" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="remark" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="employee_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="assets_log" columnName="trans_datetime" columnDataType="datetime"/>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

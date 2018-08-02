@@ -1,0 +1,88 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sample0802App.assetsLog.home.title">Assets Logs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-assets-log-my-suffix" [routerLink]="['/assets-log-my-suffix/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sample0802App.assetsLog.home.createLabel">
+            Create new Assets Log
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="assetsLogs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="digitalCode"><span jhiTranslate="sample0802App.assetsLog.digitalCode">Digital Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="custId"><span jhiTranslate="sample0802App.assetsLog.custId">Cust Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="securityAccountCode"><span jhiTranslate="sample0802App.assetsLog.securityAccountCode">Security Account Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="assetsType"><span jhiTranslate="sample0802App.assetsLog.assetsType">Assets Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="assetsCode"><span jhiTranslate="sample0802App.assetsLog.assetsCode">Assets Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="assetsSubtype"><span jhiTranslate="sample0802App.assetsLog.assetsSubtype">Assets Subtype</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="transDatetime"><span jhiTranslate="sample0802App.assetsLog.transDatetime">Trans Datetime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tradeAmt"><span jhiTranslate="sample0802App.assetsLog.tradeAmt">Trade Amt</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="feeAmt"><span jhiTranslate="sample0802App.assetsLog.feeAmt">Fee Amt</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="startBal"><span jhiTranslate="sample0802App.assetsLog.startBal">Start Bal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="endBal"><span jhiTranslate="sample0802App.assetsLog.endBal">End Bal</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tradeObjType"><span jhiTranslate="sample0802App.assetsLog.tradeObjType">Trade Obj Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tradeObjId"><span jhiTranslate="sample0802App.assetsLog.tradeObjId">Trade Obj Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span jhiTranslate="sample0802App.assetsLog.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="remark"><span jhiTranslate="sample0802App.assetsLog.remark">Remark</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="employeeId"><span jhiTranslate="sample0802App.assetsLog.employee">Employee</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let assetsLog of assetsLogs ;trackBy: trackId">
+                <td><a [routerLink]="['/assets-log-my-suffix', assetsLog.id, 'view' ]">{{assetsLog.id}}</a></td>
+                <td>{{assetsLog.digitalCode}}</td>
+                <td>{{assetsLog.custId}}</td>
+                <td>{{assetsLog.securityAccountCode}}</td>
+                <td>{{assetsLog.assetsType}}</td>
+                <td>{{assetsLog.assetsCode}}</td>
+                <td>{{assetsLog.assetsSubtype}}</td>
+                <td>{{assetsLog.transDatetime | date:'medium'}}</td>
+                <td>{{assetsLog.tradeAmt}}</td>
+                <td>{{assetsLog.feeAmt}}</td>
+                <td>{{assetsLog.startBal}}</td>
+                <td>{{assetsLog.endBal}}</td>
+                <td>{{assetsLog.tradeObjType}}</td>
+                <td>{{assetsLog.tradeObjId}}</td>
+                <td>{{assetsLog.description}}</td>
+                <td>{{assetsLog.remark}}</td>
+                <td>
+                    <div *ngIf="assetsLog.employeeId">
+                        <a [routerLink]="['../employee-my-suffix', assetsLog.employeeId , 'view' ]" >{{assetsLog.employeeId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/assets-log-my-suffix', assetsLog.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/assets-log-my-suffix', assetsLog.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'assets-log-my-suffix/'+ assetsLog.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

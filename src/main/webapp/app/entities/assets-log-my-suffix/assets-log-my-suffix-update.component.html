@@ -1,0 +1,108 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-assets-log-my-suffix-heading" jhiTranslate="sample0802App.assetsLog.home.createOrEditLabel">Create or edit a Assets Log</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!assetsLog.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="assetsLog.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.digitalCode" for="field_digitalCode">Digital Code</label>
+                    <input type="text" class="form-control" name="digitalCode" id="field_digitalCode"
+                        [(ngModel)]="assetsLog.digitalCode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.custId" for="field_custId">Cust Id</label>
+                    <input type="number" class="form-control" name="custId" id="field_custId"
+                        [(ngModel)]="assetsLog.custId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.securityAccountCode" for="field_securityAccountCode">Security Account Code</label>
+                    <input type="text" class="form-control" name="securityAccountCode" id="field_securityAccountCode"
+                        [(ngModel)]="assetsLog.securityAccountCode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.assetsType" for="field_assetsType">Assets Type</label>
+                    <input type="number" class="form-control" name="assetsType" id="field_assetsType"
+                        [(ngModel)]="assetsLog.assetsType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.assetsCode" for="field_assetsCode">Assets Code</label>
+                    <input type="text" class="form-control" name="assetsCode" id="field_assetsCode"
+                        [(ngModel)]="assetsLog.assetsCode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.assetsSubtype" for="field_assetsSubtype">Assets Subtype</label>
+                    <input type="number" class="form-control" name="assetsSubtype" id="field_assetsSubtype"
+                        [(ngModel)]="assetsLog.assetsSubtype" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.transDatetime" for="field_transDatetime">Trans Datetime</label>
+                    <div class="d-flex">
+                        <input id="field_transDatetime" type="datetime-local" class="form-control" name="transDatetime" [(ngModel)]="transDatetime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.tradeAmt" for="field_tradeAmt">Trade Amt</label>
+                    <input type="number" class="form-control" name="tradeAmt" id="field_tradeAmt"
+                        [(ngModel)]="assetsLog.tradeAmt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.feeAmt" for="field_feeAmt">Fee Amt</label>
+                    <input type="number" class="form-control" name="feeAmt" id="field_feeAmt"
+                        [(ngModel)]="assetsLog.feeAmt" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.startBal" for="field_startBal">Start Bal</label>
+                    <input type="number" class="form-control" name="startBal" id="field_startBal"
+                        [(ngModel)]="assetsLog.startBal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.endBal" for="field_endBal">End Bal</label>
+                    <input type="number" class="form-control" name="endBal" id="field_endBal"
+                        [(ngModel)]="assetsLog.endBal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.tradeObjType" for="field_tradeObjType">Trade Obj Type</label>
+                    <input type="number" class="form-control" name="tradeObjType" id="field_tradeObjType"
+                        [(ngModel)]="assetsLog.tradeObjType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.tradeObjId" for="field_tradeObjId">Trade Obj Id</label>
+                    <input type="number" class="form-control" name="tradeObjId" id="field_tradeObjId"
+                        [(ngModel)]="assetsLog.tradeObjId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="assetsLog.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.remark" for="field_remark">Remark</label>
+                    <input type="text" class="form-control" name="remark" id="field_remark"
+                        [(ngModel)]="assetsLog.remark" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sample0802App.assetsLog.employee" for="field_employee">Employee</label>
+                    <select class="form-control" id="field_employee" name="employee" [(ngModel)]="assetsLog.employeeId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeeOption.id" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById">{{employeeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

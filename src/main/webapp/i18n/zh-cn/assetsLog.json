@@ -1,0 +1,37 @@
+
+{
+    "sample0802App": {
+        "assetsLog" : {
+            "home": {
+                "title": "Assets Logs",
+                "createLabel": "创建新 Assets Log",
+                "createOrEditLabel": "创建或编辑 Assets Log"
+            },
+            "created": "Assets Log {{ param }} 创建成功",
+            "updated": "Assets Log {{ param }} 更新成功",
+            "deleted": "Assets Log {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Assets Log {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Assets Log"
+            },
+            "digitalCode": "Digital Code",
+            "custId": "Cust Id",
+            "securityAccountCode": "Security Account Code",
+            "assetsType": "Assets Type",
+            "assetsCode": "Assets Code",
+            "assetsSubtype": "Assets Subtype",
+            "transDatetime": "Trans Datetime",
+            "tradeAmt": "Trade Amt",
+            "feeAmt": "Fee Amt",
+            "startBal": "Start Bal",
+            "endBal": "End Bal",
+            "tradeObjType": "Trade Obj Type",
+            "tradeObjId": "Trade Obj Id",
+            "description": "Description",
+            "remark": "Remark",
+            "employee": "Employee"
+        }
+    }
+}
