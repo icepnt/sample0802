@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="assetsLog">
+            <h2><span jhiTranslate="sample0802App.assetsLog.detail.title">Assets Log</span> {{assetsLog.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sample0802App.assetsLog.digitalCode">Digital Code</span></dt>
+                <dd>
+                    <span>{{assetsLog.digitalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.custId">Cust Id</span></dt>
+                <dd>
+                    <span>{{assetsLog.custId}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.securityAccountCode">Security Account Code</span></dt>
+                <dd>
+                    <span>{{assetsLog.securityAccountCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.assetsType">Assets Type</span></dt>
+                <dd>
+                    <span>{{assetsLog.assetsType}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.assetsCode">Assets Code</span></dt>
+                <dd>
+                    <span>{{assetsLog.assetsCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.assetsSubtype">Assets Subtype</span></dt>
+                <dd>
+                    <span>{{assetsLog.assetsSubtype}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.transDatetime">Trans Datetime</span></dt>
+                <dd>
+                    <span>{{assetsLog.transDatetime}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.tradeAmt">Trade Amt</span></dt>
+                <dd>
+                    <span>{{assetsLog.tradeAmt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.feeAmt">Fee Amt</span></dt>
+                <dd>
+                    <span>{{assetsLog.feeAmt}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.startBal">Start Bal</span></dt>
+                <dd>
+                    <span>{{assetsLog.startBal}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.endBal">End Bal</span></dt>
+                <dd>
+                    <span>{{assetsLog.endBal}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.tradeObjType">Trade Obj Type</span></dt>
+                <dd>
+                    <span>{{assetsLog.tradeObjType}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.tradeObjId">Trade Obj Id</span></dt>
+                <dd>
+                    <span>{{assetsLog.tradeObjId}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.description">Description</span></dt>
+                <dd>
+                    <span>{{assetsLog.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.remark">Remark</span></dt>
+                <dd>
+                    <span>{{assetsLog.remark}}</span>
+                </dd>
+                <dt><span jhiTranslate="sample0802App.assetsLog.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="assetsLog.employeeId">
+                        <a [routerLink]="['/employee-my-suffix', assetsLog.employeeId, 'view']">{{assetsLog.employeeId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/assets-log-my-suffix', assetsLog.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
